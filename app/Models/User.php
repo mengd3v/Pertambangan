@@ -21,7 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'type'
     ];
 
     /**
@@ -43,10 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function type(): Attribute
+    /**
+     * Auto hash password when create/update
+     * @param $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
     {
-        return new Attribute(
-            get: fn ($value) =>  ["admin", "pengelola"][$value],
-        );
+        $this->attributes['password'] = \Hash::needsRehash($value) ? \Hash::make($value) : $value;
     }
 }

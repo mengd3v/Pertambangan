@@ -13,16 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])
+    ->name('index');
 
-Auth::routes();
+require __DIR__.'/auth.php';
 
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-});
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::middleware(['auth', 'user-access:pengelola'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('profile', [\App\Http\Controllers\SiteController::class, 'profile'])
+        ->middleware('password.confirm')
+        ->name('profile');
 });
