@@ -16,17 +16,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //  \App\Models\User::factory(5)->create();
-        //  \App\Models\Admin::factory(5)->create();
+        // \App\Models\User::factory(5)->create();
+        // \App\Models\Admin::factory(5)->create();
 
-        // \App\Models\User::create([
-        //     'namename' => 'User Test',
-        //     'username' => 'UserTest',
-        //     'email' => 'usertest@gmail.com',
-        //     'password' => bcrypt('12341234'),
-        //     'created_at' => Carbon::now(),
-        //     'updated_at' => Carbon::now(),
-        // ]);
+        \App\Models\User::create([
+            'namename' => 'User Test',
+            'username' => 'UserTest',
+            'email' => 'usertest@gmail.com',
+            'password' => Hash::make('12341234'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
 
         \App\Models\Admin::create([
             'name' => 'Admin Test',
@@ -35,6 +35,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12341234'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
+        ]);
+
+        $this->call([
+            kendaraanSeeder::class,
+            sewaSeeder::class,
         ]);
     }
 }

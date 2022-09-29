@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = \Hash::needsRehash($value) ? \Hash::make($value) : $value;
     }
+
+    public function pemakaian()
+    {
+        return $this->belongsTo(Pemakaian::class);
+    }
 }

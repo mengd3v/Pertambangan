@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -48,11 +47,15 @@ Route::prefix('admin')->group(static function () {
         })->name('admin.kendaraan');
 
 
-        //Pengelola
-        Route::get('pengelola', function ()
+        // Pengelola
+        Route::get('pengelola', [\App\Http\Controllers\Admin\PengelolaController::class, 'index'])->name('admin.pengelola');
+        Route::get('pengelola/{id}', [\App\Http\Controllers\Admin\PengelolaController::class, 'show'])->name('admin.pengelola.show');
+
+        // Persewaan Kendaraan
+        Route::get('sewa', function ()
         {
-            return view('admin.pengelola.index');
-        })->name('admin.pengelola');
+            return view('admin.sewa.index');
+        })->name('admin.sewa');
     });
 });
 
