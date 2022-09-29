@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-use App\Models\Tambang;
+use App\Models\Garasi;
 use Illuminate\Http\Request;
 
-class TambangController extends Controller
+class GarasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class TambangController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tambang  $tambang
+     * @param  \App\Models\Garasi  $garasi
      * @return \Illuminate\Http\Response
      */
-    public function show(Tambang $tambang)
+    public function show(Garasi $garasi)
     {
         //
     }
@@ -52,10 +52,10 @@ class TambangController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Tambang  $tambang
+     * @param  \App\Models\Garasi  $garasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tambang $tambang)
+    public function edit(Garasi $garasi)
     {
         //
     }
@@ -64,10 +64,10 @@ class TambangController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tambang  $tambang
+     * @param  \App\Models\Garasi  $garasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tambang $tambang)
+    public function update(Request $request, Garasi $garasi)
     {
         //
     }
@@ -75,10 +75,10 @@ class TambangController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Tambang  $tambang
+     * @param  \App\Models\Garasi  $garasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tambang $tambang)
+    public function destroy(Garasi $garasi)
     {
         //
     }

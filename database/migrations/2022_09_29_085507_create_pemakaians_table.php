@@ -20,10 +20,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('driver');
-            $table->unsignedBigInteger('tambang_id')->nullable();
-            $table->foreign('tambang_id')->references('id')->on('tambangs')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('garasi_id')->nullable();
+            $table->foreign('garasi_id')->references('id')->on('garasis')->onUpdate('cascade')->onDelete('cascade');
             $table->string('lokasi');
             $table->timestamp('waktu');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

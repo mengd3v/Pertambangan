@@ -205,11 +205,11 @@ class ComposerStaticInit7a7e252990663595cd6c73d69785b029
         ),
         'Yajra\\DataTables\\' => 
         array (
-            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
+            0 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
             1 => __DIR__ . '/..' . '/yajra/laravel-datatables-editor/src',
-            2 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
+            2 => __DIR__ . '/..' . '/yajra/laravel-datatables-fractal/src',
             3 => __DIR__ . '/..' . '/yajra/laravel-datatables-html/src',
-            4 => __DIR__ . '/..' . '/yajra/laravel-datatables-buttons/src',
+            4 => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src',
         ),
         'Whoops\\' => 
         array (
@@ -607,6 +607,7 @@ class ComposerStaticInit7a7e252990663595cd6c73d69785b029
         'App\\Http\\Controllers\\Admin\\Auth\\NewPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/NewPasswordController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\PasswordResetLinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/PasswordResetLinkController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\VerifyEmailController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/VerifyEmailController.php',
+        'App\\Http\\Controllers\\Admin\\BensinController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BensinController.php',
         'App\\Http\\Controllers\\Admin\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/HomeController.php',
         'App\\Http\\Controllers\\Admin\\KendaraanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KendaraanController.php',
         'App\\Http\\Controllers\\Admin\\PemakaianController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PemakaianController.php',
@@ -640,6 +641,7 @@ class ComposerStaticInit7a7e252990663595cd6c73d69785b029
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Bensin' => __DIR__ . '/../..' . '/app/Models/Bensin.php',
+        'App\\Models\\Garasi' => __DIR__ . '/../..' . '/app/Models/Garasi.php',
         'App\\Models\\Kendaraan' => __DIR__ . '/../..' . '/app/Models/Kendaraan.php',
         'App\\Models\\Pemakaian' => __DIR__ . '/../..' . '/app/Models/Pemakaian.php',
         'App\\Models\\Pengembalian' => __DIR__ . '/../..' . '/app/Models/Pengembalian.php',
@@ -876,6 +878,10 @@ class ComposerStaticInit7a7e252990663595cd6c73d69785b029
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\kendaraanSeeder' => __DIR__ . '/../..' . '/database/seeders/kendaraanSeeder.php',
+        'Database\\Seeders\\pemakaianSeeder' => __DIR__ . '/../..' . '/database/seeders/pemakaianSeeder.php',
+        'Database\\Seeders\\pengembalianSeeder' => __DIR__ . '/../..' . '/database/seeders/pengembalianSeeder.php',
+        'Database\\Seeders\\sewaSeeder' => __DIR__ . '/../..' . '/database/seeders/sewaSeeder.php',
+        'Database\\Seeders\\tambangSeeder' => __DIR__ . '/../..' . '/database/seeders/tambangSeeder.php',
         'DebugBar\\Bridge\\CacheCacheCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
         'DebugBar\\Bridge\\DoctrineCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
         'DebugBar\\Bridge\\MonologCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/MonologCollector.php',

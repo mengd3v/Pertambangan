@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\Pemakaian;
+use App\Models\Tambang;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class pemakaianSeeder extends Seeder
 {
@@ -16,7 +18,30 @@ class pemakaianSeeder extends Seeder
     public function run()
     {
         Pemakaian::create([
-            
+            'kendaraan_id' => 1,
+            'user_id' => 1,
+            'garasi_id' => 1,
+            'driver' => 'samsul',
+            'waktu' => Carbon::now()->subDay(),
+            'status' => 1
+        ]);
+
+        Pemakaian::create([
+            'kendaraan_id' => 2,
+            'user_id' => 1,
+            'garasi_id' => 1,
+            'driver' => 'joko',
+            'waktu' => Carbon::now()->subHours(5),
+            'status' => 1
+        ]);
+
+        Pemakaian::create([
+            'kendaraan_id' => 3,
+            'user_id' => 1,
+            'garasi_id' => 2,
+            'driver' => 'susilo',
+            'waktu' => Carbon::now()->subHours(5),
+            'status' => 0
         ]);
     }
 }

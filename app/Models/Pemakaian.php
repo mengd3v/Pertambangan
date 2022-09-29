@@ -15,9 +15,9 @@ class Pemakaian extends Model
         return $this->hasOne(User::class);
     }
 
-    public function tambang()
+    public function garasi()
     {
-        return $this->belongsTo(Tambang::class);
+        return $this->belongsTo(Garasi::class);
     }
 
     public function kendaraan()

@@ -20,8 +20,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\Admin::factory(5)->create();
 
         \App\Models\User::create([
-            'namename' => 'User Test',
-            'username' => 'UserTest',
+            'name' => 'User Test',
             'email' => 'usertest@gmail.com',
             'password' => Hash::make('12341234'),
             'created_at' => Carbon::now(),
@@ -38,8 +37,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            kendaraanSeeder::class,
             sewaSeeder::class,
+            kendaraanSeeder::class,
+            garasiSeeder::class,
+            pemakaianSeeder::class,
+            pengembalianSeeder::class
         ]);
     }
 }
