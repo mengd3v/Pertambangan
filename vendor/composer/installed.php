@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '95e57fbd5855ebfd6d7ab6e93dab93bd4268beb6',
+        'reference' => 'e75514d15773ac421e0564bb6f9b2179f249bf5e',
         'name' => 'rubensrocha/laravel-breeze-multi-auth-admin',
         'dev' => true,
     ),
@@ -623,12 +623,12 @@
             'dev_requirement' => false,
         ),
         'nunomaduro/collision' => array(
-            'pretty_version' => 'v6.3.0',
-            'version' => '6.3.0.0',
+            'pretty_version' => 'v6.3.1',
+            'version' => '6.3.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../nunomaduro/collision',
             'aliases' => array(),
-            'reference' => '17f600e2e8872856ff2846243efb74ad4b6da531',
+            'reference' => '0f6349c3ed5dd28467087b08fb59384bb458a22b',
             'dev_requirement' => true,
         ),
         'nunomaduro/termwind' => array(
@@ -902,7 +902,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '95e57fbd5855ebfd6d7ab6e93dab93bd4268beb6',
+            'reference' => 'e75514d15773ac421e0564bb6f9b2179f249bf5e',
             'dev_requirement' => false,
         ),
         'sebastian/cli-parser' => array(
