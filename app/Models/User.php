@@ -54,6 +54,6 @@ class User extends Authenticatable
 
     public function pemakaian()
     {
-        return $this->belongsTo(Pemakaian::class);
+        return $this->hasMany(Pemakaian::class);
     }
 }

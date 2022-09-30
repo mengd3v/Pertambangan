@@ -56,6 +56,10 @@ Route::prefix('admin')->group(static function () {
         {
             return view('admin.sewa.index');
         })->name('admin.sewa');
+
+        Route::get('pesanan', [\App\Http\Controllers\Admin\PemakaianController::class, 'index'])->name('admin.pesanan');
+        Route::get('pesanan/terima/{id}', [\App\Http\Controllers\Admin\PemakaianController::class, 'terima'])->name('admin.pesanan.terima');
+        Route::get('pesanan/batalkan/{id}', [\App\Http\Controllers\Admin\PemakaianController::class, 'destroy'])->name('admin.pesanan.batal');
     });
 });
 

@@ -19,6 +19,7 @@ class pengembalianSeeder extends Seeder
         Pengembalian::create([
             'pemakaian_id' => 1,
             'user_id' => 1,
+            'garasi_id' => 1,
             'waktu' => Carbon::now()
         ]);
     }

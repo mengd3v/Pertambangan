@@ -23,7 +23,7 @@ class pemakaianSeeder extends Seeder
             'garasi_id' => 1,
             'driver' => 'samsul',
             'waktu' => Carbon::now()->subDay(),
-            'status' => 1
+            'status' => 'accAdmin'
         ]);
 
         Pemakaian::create([
@@ -32,7 +32,7 @@ class pemakaianSeeder extends Seeder
             'garasi_id' => 1,
             'driver' => 'joko',
             'waktu' => Carbon::now()->subHours(5),
-            'status' => 1
+            'status' => 'accPengelola'
         ]);
 
         Pemakaian::create([
@@ -41,7 +41,7 @@ class pemakaianSeeder extends Seeder
             'garasi_id' => 2,
             'driver' => 'susilo',
             'waktu' => Carbon::now()->subHours(5),
-            'status' => 0
+            'status' => 'belum'
         ]);
     }
 }

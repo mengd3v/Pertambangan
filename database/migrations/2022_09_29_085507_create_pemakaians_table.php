@@ -22,9 +22,8 @@ return new class extends Migration
             $table->string('driver');
             $table->unsignedBigInteger('garasi_id')->nullable();
             $table->foreign('garasi_id')->references('id')->on('garasis')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('lokasi');
             $table->timestamp('waktu');
-            $table->boolean('status');
+            $table->enum('status',['acc','accAdmin', 'accPengelola', 'belum']);
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Pemakaian;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class PemakaianController extends Controller
 {
@@ -12,10 +13,40 @@ class PemakaianController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = Pemakaian::where('status', false)->orderBy('waktu', 'desc')->get();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                    ->addColumn('kendaraan', function($row){
+                        return $row->kendaraan->nomor;
+                    })
+                    ->addColumn('pengelola', function($row){
+                        return $row->user->name;
+                    })
+                    ->addColumn('garasi', function($row){
+                        return $row->garasi->nama;
+                    })
+                    ->addColumn('action', function($row){
+                            $btn = '<a id="delete-confirm" href="'.route("admin.pesanan.terima",$row["id"]).'" class="btn btn-success btn-sm">Terima</a> <a onclick="confirmDelete('.$row["id"].')" href="" data-toggle="modal" data-target="#Modal" class="btn btn-danger btn-sm" >Batalkan</a>';
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return view('admin.pemesanan.index');
     }
+
+
+    // Terima Pesanan
+    public function terima($id)
+    {
+        $pemakaian = Pemakaian::find($id);
+        $pemakaian->status = true;
+        $pemakaian->save();
+        return redirect()->back()->with('success', 'Pesanan diterima');
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -78,8 +109,9 @@ class PemakaianController extends Controller
      * @param  \App\Models\Pemakaian  $pemakaian
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pemakaian $pemakaian)
+    public function destroy($id)
     {
-        //
+        Pemakaian::find($id)->delete();
+        return redirect()->back()->with('success', 'Pesanan dibatalkan');
     }
 }
