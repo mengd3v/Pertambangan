@@ -1,7 +1,7 @@
 <x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Pesanan Kendaraan') }}
+            {{ __('Permintaan Pemakaian Kendaraan') }}
         </h2>
     </x-slot>
     
@@ -9,6 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <div class="">
+                        <a href="{{ route('admin.pesanan.create') }}" class="btn btn-primary">Tambah Permintaan</a>
+                    </div>
+                    <br>
                     <x-flash-message>
                     </x-flash-message>
                     <table class="table table-bordered data-table" id="DataTable">

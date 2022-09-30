@@ -9,6 +9,16 @@ class Pemakaian extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        'kendaraan_id',
+        'user_id',
+        'garasi_id',
+        'driver',
+        'deskripsi',
+        'status'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

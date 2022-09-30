@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Garasi;
+use App\Models\Kendaraan;
 use App\Models\Pemakaian;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -15,7 +18,7 @@ class PemakaianController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Pemakaian::where('status', false)->orderBy('waktu', 'desc')->get();
+        $data = Pemakaian::where('status', 'accPengelola')->orderBy('waktu', 'desc')->get();
         if ($request->ajax()) {
             return DataTables::of($data)
                     ->addColumn('kendaraan', function($row){
@@ -42,7 +45,7 @@ class PemakaianController extends Controller
     public function terima($id)
     {
         $pemakaian = Pemakaian::find($id);
-        $pemakaian->status = true;
+        $pemakaian->status = 'acc';
         $pemakaian->save();
         return redirect()->back()->with('success', 'Pesanan diterima');
     }
@@ -55,7 +58,10 @@ class PemakaianController extends Controller
      */
     public function create()
     {
-        //
+        $kendaraans = Kendaraan::all();
+        $pengelolas = User::all();
+        $garasis = Garasi::all();
+        return view('admin.pemesanan.create', ['kendaraans'=>$kendaraans,'pengelolas' => $pengelolas, 'garasis' => $garasis]);
     }
 
     /**
@@ -66,7 +72,22 @@ class PemakaianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kendaraan_id' => 'required',
+            'garasi_id' => 'required',
+            'user_id' => 'required',
+            'driver' => 'required|min:2',
+            'deskripsi' => 'required'
+        ]);
+        Pemakaian::create([
+            'kendaraan_id' => $request->kendaraan_id,
+            'garasi_id' => $request->garasi_id,
+            'user_id' => $request->user_id,
+            'driver' => $request->driver,
+            'deskripsi' => $request->deskripsi,
+            'status' => 'accAdmin'
+        ]);
+        return redirect()->route('admin.pesanan')->with('success', 'Permintaan telah dibuat');
     }
 
     /**

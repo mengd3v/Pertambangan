@@ -22,6 +22,7 @@ class pemakaianSeeder extends Seeder
             'user_id' => 1,
             'garasi_id' => 1,
             'driver' => 'samsul',
+            'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, dolor?',
             'waktu' => Carbon::now()->subDay(),
             'status' => 'accAdmin'
         ]);
@@ -31,6 +32,7 @@ class pemakaianSeeder extends Seeder
             'user_id' => 1,
             'garasi_id' => 1,
             'driver' => 'joko',
+            'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, dolor?',
             'waktu' => Carbon::now()->subHours(5),
             'status' => 'accPengelola'
         ]);
@@ -40,6 +42,7 @@ class pemakaianSeeder extends Seeder
             'user_id' => 1,
             'garasi_id' => 2,
             'driver' => 'susilo',
+            'deskripsi' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, dolor?',
             'waktu' => Carbon::now()->subHours(5),
             'status' => 'belum'
         ]);
