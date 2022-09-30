@@ -4,9 +4,6 @@
             {{ __('Tambah Permintaan Pemakaian Kendaraan') }}
         </h2>
     </x-slot>
-    @php
-        echo $kendaraans[0]['nama'];
-    @endphp
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 bg-gray">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

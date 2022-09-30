@@ -41,21 +41,14 @@ Route::prefix('admin')->group(static function () {
         Route::get('profile', [\App\Http\Controllers\Admin\HomeController::class, 'profile'])->middleware('password.confirm.admin')->name('admin.profile');
         
         // Kendaraan
-        Route::get('kendaraan', function ()
-        {
-            return view('admin.kendaraan.index');
-        })->name('admin.kendaraan');
-
+        Route::get('kendaraan', [\App\Http\Controllers\Admin\KendaraanController::class, 'index'])->name('admin.kendaraan');
+        Route::get('kendaraan/{id}', [\App\Http\Controllers\Admin\KendaraanController::class, 'show'])->name('admin.kendaraan.show');
+        Route::get('kendaraan/add', [\App\Http\Controllers\Admin\KendaraanController::class, 'create'])->name('admin.kendaraan.create');
+        Route::get('kendaraan/delete/{id}', [\App\Http\Controllers\Admin\KendaraanController::class, 'destroy'])->name('admin.kendaraan.delete');
 
         // Pengelola
         Route::get('pengelola', [\App\Http\Controllers\Admin\PengelolaController::class, 'index'])->name('admin.pengelola');
         Route::get('pengelola/{id}', [\App\Http\Controllers\Admin\PengelolaController::class, 'show'])->name('admin.pengelola.show');
-
-        // Persewaan Kendaraan
-        Route::get('sewa', function ()
-        {
-            return view('admin.sewa.index');
-        })->name('admin.sewa');
 
         Route::get('pesanan', [\App\Http\Controllers\Admin\PemakaianController::class, 'index'])->name('admin.pesanan');
         Route::get('pesanan/create', [\App\Http\Controllers\Admin\PemakaianController::class, 'create'])->name('admin.pesanan.create');

@@ -19,7 +19,7 @@ class Kendaraan extends Model
 
     public function sewa()
     {
-        return $this->hasOne(Sewa::class);
+        return $this->belongsTo(Sewa::class);
     }
 
     public function bensin()

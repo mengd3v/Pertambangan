@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class KendaraanController extends Controller
 {
@@ -12,9 +13,22 @@ class KendaraanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data = Kendaraan::all();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                    ->addColumn('kepemilikan', function($row){
+                        return $row->sewa_id != null?'Sewa':'Pribadi';
+                    })
+                    ->addColumn('action', function($row){
+                            $btn = '<a href="'.route("admin.kendaraan.show",$row["id"]).'" class="btn btn-primary btn-sm">Detail</a> ';
+                            return $btn;
+                    })
+                    ->rawColumns(['action'])
+                    ->make(true);
+        }
+        return view('admin.kendaraan.index');
     }
 
     /**
@@ -24,7 +38,9 @@ class KendaraanController extends Controller
      */
     public function create()
     {
-        //
+        $data = Kendaraan::all();
+        dd($data);
+        return view('admin.kendaraan.create');
     }
 
     /**

@@ -11,6 +11,6 @@ class Sewa extends Model
 
     public function kendaraan()
     {
-        return $this->belongsTo(Kendaraan::class);
+        return $this->hasOne(Kendaraan::class);
     }
 }
